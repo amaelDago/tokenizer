@@ -44,15 +44,12 @@ def predict() :
         return jsonify(res)
 
 if __name__ == "__main__" : 
-    from my_vocab.mytokenize import Tokenizer
+    from mytokenize import Tokenizer
     import sentencepiece as spm
 
-    #!mkdir my_vocab
-    #tokenizer.save_vocabulary("./my_vocab/")
     s = spm.SentencePieceProcessor(model_file = './my_vocab/sentencepiece.bpe.model')
     tokenizer = Tokenizer(s)
 
-        # Model
     # Instanciate a session inference
     session = InferenceSession("./sentiment-analysis-model.onnx", options)
 
