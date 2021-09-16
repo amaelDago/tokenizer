@@ -17,7 +17,6 @@ def predict_sentiment(review) :
     assert isinstance(review, str), "Error ! Input must be string" 
 
     tokens = tokenizer.encode_plus(review)
-    print(tokens)
 
     tokens['input_ids'] = toNumpy(tokens['input_ids'])
     tokens["attention_mask"] = toNumpy(tokens["attention_mask"])
