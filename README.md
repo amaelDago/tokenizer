@@ -28,5 +28,5 @@ When your dictionary has dumped, you can it into sentencepiece like this
 !pip install sentencepiece
 s = spm.SentencePieceProcessor(model_file = './my_vocab/sentencepiece.bpe.model')
 ``` 
-It can be used to train your model. An example of usage with onnx have given in app.py
+It can be used to train your model. An example of API REST usage with onnx and flask have given in app.py
     

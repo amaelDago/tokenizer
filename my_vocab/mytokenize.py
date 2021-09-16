@@ -1,5 +1,5 @@
 
-# define a my own sentencepiece class
+# define a my own Tokenizer class
 
 class Tokenizer : 
     def __init__(self, spm_model) : 
