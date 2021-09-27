@@ -2,15 +2,18 @@ from flask import Flask, json, jsonify, request
 import numpy
 from onnxruntime import ExecutionMode, InferenceSession, SessionOptions
 
-# Add infernece parameters
+# Add inference parameters
 options = SessionOptions()
 options.inter_op_num_threads = 2
 options.execution_mode = ExecutionMode.ORT_SEQUENTIAL
 
 
+# Set parapmeters
+MAX_LEN = 100
+
 def toNumpy(myList):
-    # Trasnform list to numpy aarray
-    return numpy.array(myList + [0] * (100 - len(myList))).reshape(1,-1)
+    # Transform list to numpy aarray
+    return numpy.array(myList + [0] * (MAX_LEN - len(myList))).reshape(1,-1)
 
 
 def predict_sentiment(review) : 
@@ -26,6 +29,8 @@ def predict_sentiment(review) :
     output = session.run(None, tokens)
     ind = numpy.argmax(output)
     return ind
+
+    
 
 app = Flask(__name__)
 
