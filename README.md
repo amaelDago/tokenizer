@@ -11,7 +11,7 @@ app.py give an example of using
 
 Steps for using with tokenizer : 
 
-1 ## Get à vocabulary
+##  1 Get camaembert vocabulary
 Get a vocabulary of your tokenizer via transformers package for example.
 This code below give an example to get a vocabulary.
 
@@ -20,13 +20,15 @@ This code below give an example to get a vocabulary.
 !mkdir my_vocab
 
 from transformers import CamembertFastTokenizer
+tokenizer = CamembertFastTokenizer.from_pretrained("camembert-base")
 tokenizer.save_vocabulary("./my_vocab/")
 ```
 
-When your dictionary has dumped, you can it into sentencepiece like this
+## 2 Create your tokenizer
+When your dictionary has dumped, you can put it into sentencepiece instance like this
 ```python
 !pip install sentencepiece
-s = spm.SentencePieceProcessor(model_file = './my_vocab/sentencepiece.bpe.model')
+s = spm.SentencePieceProcessor(model_file = 'my-sentencepiece-folder/sentencepiece.bpe.model')
 ``` 
-It can be used to train your model. An example of API REST usage with onnx and flask have given in app.py
+It can be used to train your model. An example of API REST usage with onnx and flask has given in app.py
     
