@@ -8,7 +8,7 @@ options.inter_op_num_threads = 2
 options.execution_mode = ExecutionMode.ORT_SEQUENTIAL
 
 
-# Set parapmeters
+# Set parameters
 MAX_LEN = 100
 
 def toNumpy(myList):
@@ -30,7 +30,7 @@ def predict_sentiment(review) :
     ind = numpy.argmax(output)
     return ind
 
-    
+
 
 app = Flask(__name__)
 
